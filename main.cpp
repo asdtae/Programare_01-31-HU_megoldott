@@ -87,13 +87,14 @@ void drawUI() {
             else if (strcmp(buffer, "help") == 0 || strcmp(buffer, "?") == 0) {
                 printf("%sHelp:\n",Bright_White);
                 printf("%scl%s         Clears the screen.\n",Bright_Cyan,Bright_White);
-                printf("%sme%s         Quits the Programare_01_31_HU_megoldottt.exe program.\n",Bright_Cyan,Bright_White);
+                printf("%se%s          Quits the Programare_01_31_HU_megoldottt.exe program.\n",Bright_Cyan,Bright_White);
                 printf("%sfel%s        Opens the feladat selector\n",Bright_Cyan,Bright_White);
                 printf("%shelp%s / %s?%s   Provides Help information for commands.\n",Bright_Cyan,Bright_White,Bright_Cyan,Bright_White);
             }
             else if (strcmp(buffer, "fel") == 0)
             {
                 while (true) {
+                    title_color = colors[randDist(mt)];
                     printf("%sfel> %s",Bright_Cyan,Bright_White);
                     if (fgets(felbuffer, sizeof(felbuffer), stdin) != nullptr) {
                         felbuffer[strcspn(felbuffer, "\n")] = '\0';
@@ -106,7 +107,7 @@ void drawUI() {
                         else if (strcmp(felbuffer, "help") == 0 || strcmp(felbuffer, "?") == 0) {
                             printf("%sFel_Help:%s\n",Bright_Cyan,Bright_White);
                             printf("%scl%s         Clears the screen.\n",Bright_Cyan,Bright_White);
-                            printf("%sme%s         Quits the Programare_01_31_HU_megoldottt.exe program.\n",Bright_Cyan,Bright_White);
+                            printf("%se%s          Quits the feladat subprogram.\n",Bright_Cyan,Bright_White);
                             printf("%shelp%s / %s?%s   Provides Help information for %sfel%scommands.\n",Bright_Cyan,Bright_White,Bright_Cyan,Bright_White,Bright_Cyan,Bright_White);
                         }
                         else if (strcmp(felbuffer, "01") == 0) { fel01(4,30); }
