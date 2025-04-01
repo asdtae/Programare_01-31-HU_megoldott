@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Programare_01_31_HU_megoldott
+# Project: Programare_01_31_HU_megoldottt
 # Configurations: Debug
 # =============================================================================
 
@@ -39,49 +39,49 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = D$:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug/
+cmake_ninja_workdir = D$:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldottt/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target Programare_01_31_HU_megoldott
+# Object build statements for EXECUTABLE target Programare_01_31_HU_megoldottt
 
 
 #############################################
-# Order-only phony target for Programare_01_31_HU_megoldott
+# Order-only phony target for Programare_01_31_HU_megoldottt
 
-build cmake_object_order_depends_target_Programare_01_31_HU_megoldott: phony || CMakeFiles/Programare_01_31_HU_megoldott.dir
+build cmake_object_order_depends_target_Programare_01_31_HU_megoldottt: phony || CMakeFiles/Programare_01_31_HU_megoldottt.dir
 
-build CMakeFiles/Programare_01_31_HU_megoldott.dir/main.cpp.obj: CXX_COMPILER__Programare_01_31_HU_megoldott_Debug D$:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/main.cpp || cmake_object_order_depends_target_Programare_01_31_HU_megoldott
-  DEP_FILE = CMakeFiles\Programare_01_31_HU_megoldott.dir\main.cpp.obj.d
+build CMakeFiles/Programare_01_31_HU_megoldottt.dir/main.cpp.obj: CXX_COMPILER__Programare_01_31_HU_megoldottt_Debug D$:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldottt/main.cpp || cmake_object_order_depends_target_Programare_01_31_HU_megoldottt
+  DEP_FILE = CMakeFiles\Programare_01_31_HU_megoldottt.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++23
-  OBJECT_DIR = CMakeFiles\Programare_01_31_HU_megoldott.dir
-  OBJECT_FILE_DIR = CMakeFiles\Programare_01_31_HU_megoldott.dir
-  TARGET_COMPILE_PDB = CMakeFiles\Programare_01_31_HU_megoldott.dir\
-  TARGET_PDB = Programare_01_31_HU_megoldott.pdb
+  OBJECT_DIR = CMakeFiles\Programare_01_31_HU_megoldottt.dir
+  OBJECT_FILE_DIR = CMakeFiles\Programare_01_31_HU_megoldottt.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Programare_01_31_HU_megoldottt.dir\
+  TARGET_PDB = Programare_01_31_HU_megoldottt.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Programare_01_31_HU_megoldott
+# Link build statements for EXECUTABLE target Programare_01_31_HU_megoldottt
 
 
 #############################################
-# Link the executable Programare_01_31_HU_megoldott.exe
+# Link the executable Programare_01_31_HU_megoldottt.exe
 
-build Programare_01_31_HU_megoldott.exe: CXX_EXECUTABLE_LINKER__Programare_01_31_HU_megoldott_Debug CMakeFiles/Programare_01_31_HU_megoldott.dir/main.cpp.obj
+build Programare_01_31_HU_megoldottt.exe: CXX_EXECUTABLE_LINKER__Programare_01_31_HU_megoldottt_Debug CMakeFiles/Programare_01_31_HU_megoldottt.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Programare_01_31_HU_megoldott.dir
+  OBJECT_DIR = CMakeFiles\Programare_01_31_HU_megoldottt.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\Programare_01_31_HU_megoldott.dir\
-  TARGET_FILE = Programare_01_31_HU_megoldott.exe
-  TARGET_IMPLIB = libProgramare_01_31_HU_megoldott.dll.a
-  TARGET_PDB = Programare_01_31_HU_megoldott.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\Programare_01_31_HU_megoldottt.dir\
+  TARGET_FILE = Programare_01_31_HU_megoldottt.exe
+  TARGET_IMPLIB = libProgramare_01_31_HU_megoldottt.dll.a
+  TARGET_PDB = Programare_01_31_HU_megoldottt.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldott\cmake-build-debug && "D:\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D D:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldottt\cmake-build-debug && "D:\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -92,7 +92,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldott\cmake-build-debug && "D:\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SD:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldott -BD:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldott\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D D:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldottt\cmake-build-debug && "D:\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SD:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldottt -BD:\Mystuff\Dolgok\Programming\C++\CLion\Programare_01-31-HU_megoldottt\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -102,7 +102,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build Programare_01_31_HU_megoldott: phony Programare_01_31_HU_megoldott.exe
+build Programare_01_31_HU_megoldottt: phony Programare_01_31_HU_megoldottt.exe
 
 # =============================================================================
 # Folder targets.
@@ -110,9 +110,9 @@ build Programare_01_31_HU_megoldott: phony Programare_01_31_HU_megoldott.exe
 # =============================================================================
 
 #############################################
-# Folder: D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug
+# Folder: D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldottt/cmake-build-debug
 
-build all: phony Programare_01_31_HU_megoldott.exe
+build all: phony Programare_01_31_HU_megoldottt.exe
 
 # =============================================================================
 # Built-in targets

@@ -1,14 +1,7 @@
 #include <iostream>
 
-using namespace std;
-
-void ui()
-{
-
-}
-
 int main() {
-    ui();
-
+    std::cout << "Hello, World!" << std::endl;
+    
     fgetc(stdin);
 }

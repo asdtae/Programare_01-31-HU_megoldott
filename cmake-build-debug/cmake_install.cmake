@@ -1,8 +1,8 @@
-# Install script for directory: D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott
+# Install script for directory: D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldottt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Programare_01_31_HU_megoldott")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Programare_01_31_HU_megoldottt")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldottt/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
