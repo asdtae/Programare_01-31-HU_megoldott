@@ -1,0 +1,3 @@
+D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug/CMakeFiles/Programare_01_31_HU_megoldott.dir
+D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Mystuff/Dolgok/Programming/C++/CLion/Programare_01-31-HU_megoldott/cmake-build-debug/CMakeFiles/rebuild_cache.dir
