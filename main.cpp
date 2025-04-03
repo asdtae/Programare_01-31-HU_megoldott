@@ -27,12 +27,16 @@ using namespace std;
 
 void fel01(int a, int b)
 {
-    int t[100];
+    int t[100]; b=-1;
     cout << "Enter the number a: ";
     cin >> a;
 
-    cout << "Enter the number b: ";
-    cin >> b;
+    while(b<100)
+    {
+        cout << "Enter the number b( max:100 ): ";
+        cin >> b;
+        if(b>101) b=-1;
+    }
 
     t[0] = 0;
     t[1] = 1;
@@ -391,7 +395,7 @@ void drawUI() {
     string title_color = colors[randDist(mt)];
 
     string
-    title="\n\n      8888888b.                                                                                          .d8888b.   d888          .d8888b.   d888         888    888 888     888         \n"
+    title="\n\n\      8888888b.                                                                                          .d8888b.   d888          .d8888b.   d888         888    888 888     888         \n"
               "      888   Y88b                                                                                        d88P  Y88b d8888         d88P  Y88b d8888         888    888 888     888         \n"
               "      888    888                                                                                        888    888   888              .d88P   888         888    888 888     888         \n"
               "      888   d88P 888d888 .d88b.   .d88b.  888d888 8888b.  88888b.d88b.   8888b.  888d888 .d88b.         888    888   888             8888\"    888         8888888888 888     888         \n"
@@ -404,7 +408,7 @@ void drawUI() {
               "                                  \"Y88P\"\n";
 
     string separator = "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n";
-    printf("%s%s %s",title_color.c_str() ,title.c_str(), separator.c_str());
+    printf("%s%s %s%s",title_color.c_str() ,title.c_str(), separator.c_str(), Bright_White);
 
     while (true) {
         title_color = colors[randDist(mt)];
@@ -449,6 +453,13 @@ void drawUI() {
                             printf("%s04%s         4. feladat\n",Bright_Cyan,Bright_White);
                             printf("2D Tomb: %s\n",Bright_White);
                             printf("%s11%s         1. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s12%s         2. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s13%s         3. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s14%s         4. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s15%s         5. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s16%s         6. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s17%s         7. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s18%s         8. feladat\n",Bright_Cyan,Bright_White);
                             printf("BAC_SIM25: %s\n",Bright_White);
                             printf("%sb22%s        BAC_SIM25 II 2.\n",Bright_Cyan,Bright_White);
                         }
@@ -462,7 +473,61 @@ void drawUI() {
                         else if (strcmp(felbuffer, "08") == 0) {  }
                         else if (strcmp(felbuffer, "09") == 0) {  }
                         else if (strcmp(felbuffer, "10") == 0) {  }
-                        else if (strcmp(felbuffer, "11") == 0) { int fel11_t[16]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}; fel11(4,reinterpret_cast<vector<int> &>(fel11_t)); }
+                        else if (strcmp(felbuffer, "11") == 0)
+                        {
+                            vector<int> arr(16);
+                            arr.assign({1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16});
+                            fel11(4,arr);
+
+                        }
+                        else if (strcmp(felbuffer, "12") == 0)
+                        {
+                            vector<vector<int>> matrix(4, vector<int>(4));
+                            matrix[0]={1 ,1 ,3 ,4};
+                            matrix[1]={5 ,6 ,7 ,8};
+                            matrix[2]={9 ,9 ,11 ,12};
+                            matrix[3]={13 ,14 ,15 ,16};
+                            fel12(4,matrix);
+                        }
+                        else if (strcmp(felbuffer, "13") == 0)
+                        {
+                            vector<vector<int>> matrix(4, vector<int>(4));
+                            matrix[0]={1 ,12 ,13 ,45};
+                            matrix[1]={5 ,16 ,7 ,18};
+                            matrix[2]={9 ,10 ,11 ,12};
+                            matrix[3]={13 ,14 ,15 ,16};
+                            fel13(4,matrix);
+                        }
+                        else if (strcmp(felbuffer, "14") == 0)
+                        {
+                            vector<vector<int>> matrix(4, vector<int>(5));
+                            matrix[0]={1 ,12 ,13 ,45 ,10};
+                            matrix[1]={5 ,16 ,7 ,18 ,49};
+                            matrix[2]={9 ,50 ,11 ,12 ,25};
+                            matrix[3]={13 ,14 ,15 ,16 ,34};
+                            fel14(4,5,matrix);
+                        }
+                        else if (strcmp(felbuffer, "15") == 0)
+                        {
+                            vector<vector<int>> matrix(4, vector<int>(5));
+                            matrix[0]={1 ,12 ,13 ,45 ,10};
+                            matrix[1]={5 ,16 ,7 ,18 ,49};
+                            matrix[2]={9 ,50 ,11 ,12 ,25};
+                            matrix[3]={13 ,14 ,15 ,16 ,34};
+                            fel15(4,5,matrix);
+                        }
+                        else if (strcmp(felbuffer, "16") == 0)
+                        {
+                            fel16(4);
+                        }
+                        else if (strcmp(felbuffer, "17") == 0)
+                        {
+                            fel17(123);
+                        }
+                        else if (strcmp(felbuffer, "18") == 0)
+                        {
+                            fel18(4,3);
+                        }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
                         else if(strcmp(felbuffer, "") == 0) printf("");
                         else {
@@ -483,45 +548,8 @@ void drawUI() {
 
 int main() {
 
-    //vector<int> arr(16);
-    //arr.assign({1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16});
-    //fel11(4,arr);
-    //drawUI();
+    drawUI();
 
-//    vector<vector<int>> matrix(4, vector<int>(4));
-//    matrix[0]={1 ,1 ,3 ,4};
-//    matrix[1]={5 ,6 ,7 ,8};
-//    matrix[2]={9 ,9 ,11 ,12};
-//    matrix[3]={13 ,14 ,15 ,16};
-//    fel12(4,matrix);
-
-//    vector<vector<int>> matrix(4, vector<int>(4));
-//    matrix[0]={1 ,12 ,13 ,45};
-//    matrix[1]={5 ,16 ,7 ,18};
-//    matrix[2]={9 ,10 ,11 ,12};
-//    matrix[3]={13 ,14 ,15 ,16};
-//    fel13(4,matrix);
-
-//    vector<vector<int>> matrix(4, vector<int>(5));
-//    matrix[0]={1 ,12 ,13 ,45 ,10};
-//    matrix[1]={5 ,16 ,7 ,18 ,49};
-//    matrix[2]={9 ,50 ,11 ,12 ,25};
-//    matrix[3]={13 ,14 ,15 ,16 ,34};
-//    fel14(4,5,matrix);
-
-//    vector<vector<int>> matrix(4, vector<int>(5));
-//    matrix[0]={1 ,12 ,13 ,45 ,10};
-//    matrix[1]={5 ,16 ,7 ,18 ,49};
-//    matrix[2]={9 ,50 ,11 ,12 ,25};
-//    matrix[3]={13 ,14 ,15 ,16 ,34};
-//    fel15(4,5,matrix);
-
-//    fel16(4);
-
-//    fel17(123);
-
-    fel18(4,3);
-
-    fgetc(stdin);
-    fgetc(stdin);
+    //fgetc(stdin);
+    //fgetc(stdin);
 }
