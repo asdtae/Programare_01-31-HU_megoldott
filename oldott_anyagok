@@ -25,7 +25,7 @@ using namespace std;
 
 void fel01(int a, int b)
 {
-    int next, t[100];
+    int t[100];
     cout << "Enter the number a: ";
     cin >> a;
 
