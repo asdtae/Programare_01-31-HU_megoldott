@@ -354,6 +354,42 @@ void fel18(int n, int m)
     cout << endl;
 }
 
+void fel19(int n, int m)
+{
+    int maxi= -INT_MAX;
+    int db=0;
+    cout<<"n: ";cin>>n;
+    cout<<"m: ";cin>>m;
+
+    int t[100][100];
+
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            cin>>t[i][j];
+            if(i==0 || j==0 || i==(n-1) || j==(m-1))
+            {
+                if(t[i][j] > maxi) maxi = t[i][j];
+                if(t[i][j] == maxi) db++;
+                else if( t[i][j] > maxi )db=0;
+            }
+        }
+    }
+
+/*
+75 28 21 73 33
+82 36 27 21 21
+48 52 39 32 22
+82 28 28 28 82
+29 10 20 30 40
+*/
+
+    cout<<maxi<<' '<<db;
+
+    cout<<'\n';
+}
+
 void bac_2_2()
 {
     int mgdb[100], db, n;
@@ -460,6 +496,7 @@ void drawUI() {
                             printf("%s16%s         6. feladat\n",Bright_Cyan,Bright_White);
                             printf("%s17%s         7. feladat\n",Bright_Cyan,Bright_White);
                             printf("%s18%s         8. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s19%s         9. feladat\n",Bright_Cyan,Bright_White);
                             printf("BAC_SIM25: %s\n",Bright_White);
                             printf("%sb22%s        BAC_SIM25 II 2.\n",Bright_Cyan,Bright_White);
                         }
@@ -527,6 +564,10 @@ void drawUI() {
                         else if (strcmp(felbuffer, "18") == 0)
                         {
                             fel18(4,3);
+                        }
+                        else if (strcmp(felbuffer, "19") == 0)
+                        {
+                            fel19(4,5);
                         }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
                         else if(strcmp(felbuffer, "") == 0) printf("");
