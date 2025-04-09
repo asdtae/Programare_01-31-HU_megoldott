@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <cstring>
 #include <random>
@@ -370,9 +371,9 @@ void fel19(int n, int m)
             cin>>t[i][j];
             if(i==0 || j==0 || i==(n-1) || j==(m-1))
             {
+                if( t[i][j] > maxi )db=0;
                 if(t[i][j] > maxi) maxi = t[i][j];
                 if(t[i][j] == maxi) db++;
-                else if( t[i][j] > maxi )db=0;
             }
         }
     }
@@ -386,6 +387,123 @@ void fel19(int n, int m)
 */
 
     cout<<maxi<<' '<<db;
+
+    cout<<'\n';
+}
+
+void fel21()
+{
+    /*
+Atestat
+informatica
+Bac
+programator
+Pascal
+Cpp
+Competente
+    */
+    int i=0;
+    char mgh[6]="aeiou";
+
+    struct {
+        int mgh=0;
+        char sz[21];
+    }t[100];
+
+    struct {
+        int mgh;
+        char sz[21];
+    }swc;
+
+    ifstream f("a.in");
+
+    while(!f.eof())
+    {
+        f.getline(t[i].sz,20);
+        for(int j=0; j<5; j++)
+        {
+            if( strchr(t[i].sz,mgh[j]) ) t[i].mgh++;
+        }
+
+        i++;
+    }
+
+    for(int j=0; j<=i; j++)
+    {
+        for(int k=0; k<=i; k++)
+        {
+            if(t[j].mgh < t[k].mgh)
+            {
+                strcpy(swc.sz,t[j].sz);
+                strcpy(t[j].sz,t[k].sz);
+                strcpy(t[k].sz,swc.sz);
+
+                swc.mgh = t[j].mgh;
+                t[j].mgh = t[k].mgh;
+                t[k].mgh = swc.mgh;
+            }
+        }
+    }
+
+    int len1, len2;
+
+    for(int j=1; j<i; j++)
+    {
+        if( t[j].mgh == t[j-1].mgh )
+        {
+            len1 = strlen(t[j-1].sz);
+            len2 = strlen(t[j].sz);
+
+            if( len1 > len2)
+            {
+                strcpy(swc.sz,t[j].sz);
+                strcpy(t[j].sz,t[j-1].sz);
+                strcpy(t[j-1].sz,swc.sz);
+
+                swc.mgh = t[j].mgh;
+                t[j].mgh = t[j-1].mgh;
+                t[j-1].mgh = swc.mgh;
+            }
+        }
+    }
+
+    for(int j=0; j<=i; j++)
+    {
+        if(strlen(t[j].sz)>1) cout<<t[j].sz<<'\n';
+    }
+
+    cout<<'\n';
+}
+
+void fel22()
+{
+    char szo[21];
+    char s2[21];
+    char mgh[6]="aeiou";
+
+    ifstream f("a.in");
+
+    f>>szo;
+
+    for(int i=0; i<5; i++)
+    {
+        for(int j=0; j<strlen(szo); j++)
+        {
+            if(strchr(szo,mgh[i])!=NULL)
+            {
+                strcpy(s2,szo);
+                for(int k=0; k<strlen(szo); k++)
+                {
+                    const char c1 = *s2[k];
+                    const char c2 = *mgh[i];
+
+                    if(strcmp(c1,c2)) cout<<'\033[33m'<<s2[k]<<'\033[39m';
+                    else cout<<s2[k];
+                }
+                cout<<'\n';
+            }
+        }
+    }
 
     cout<<'\n';
 }
@@ -497,6 +615,9 @@ void drawUI() {
                             printf("%s17%s         7. feladat\n",Bright_Cyan,Bright_White);
                             printf("%s18%s         8. feladat\n",Bright_Cyan,Bright_White);
                             printf("%s19%s         9. feladat\n",Bright_Cyan,Bright_White);
+                            printf("char: %s\n",Bright_White);
+                            printf("%s21%s         1. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s22%s         2. feladat\n",Bright_Cyan,Bright_White);
                             printf("BAC_SIM25: %s\n",Bright_White);
                             printf("%sb22%s        BAC_SIM25 II 2.\n",Bright_Cyan,Bright_White);
                         }
@@ -568,6 +689,14 @@ void drawUI() {
                         else if (strcmp(felbuffer, "19") == 0)
                         {
                             fel19(4,5);
+                        }
+                        else if (strcmp(felbuffer, "21") == 0)
+                        {
+                            fel21();
+                        }
+                        else if (strcmp(felbuffer, "22") == 0)
+                        {
+                            fel22();
                         }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
                         else if(strcmp(felbuffer, "") == 0) printf("");
