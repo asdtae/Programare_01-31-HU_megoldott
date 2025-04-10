@@ -479,33 +479,38 @@ void fel22()
 {
     char szo[21];
     char s2[21];
+    char s3[20];
     char mgh[6]="aeiou";
 
     ifstream f("a.in");
 
     f>>szo;
+    /*
+informatica
+    */
 
     for(int i=0; i<5; i++)
     {
-        for(int j=0; j<strlen(szo); j++)
+        if(strchr(szo,mgh[i])!=NULL)
         {
-            if(strchr(szo,mgh[i])!=NULL)
+            strcpy(s2,szo);
+            for(int k=0; k<strlen(s2); k++)
             {
-                strcpy(s2,szo);
-                for(int k=0; k<strlen(szo); k++)
+                if(s2[k]==mgh[i])
                 {
-                    const char c1 = *s2[k];
-                    const char c2 = *mgh[i];
+                    cout<<Bright_Green<<s2[k]<<Bright_White;
 
-                    if(strcmp(c1,c2)) cout<<'\033[33m'<<s2[k]<<'\033[39m';
-                    else cout<<s2[k];
+                    strcpy(s3,s2);
+                    s3[k] = '\0';
+                    strcpy(s2,s2+k+1);
+
+                    cout<<s2<<'\n';
+                    //strcpy(s2+poi,s3);
                 }
-                cout<<'\n';
             }
+            cout<<Bright_Blue<<s2<<'\n'<<Bright_White;
         }
     }
-
-    cout<<'\n';
 }
 
 void bac_2_2()
