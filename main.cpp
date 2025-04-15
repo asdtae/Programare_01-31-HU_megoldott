@@ -200,7 +200,7 @@ void fel12(int n, vector<vector<int>> &matrix)
                     break;
                 }
             }
-            if (paratlanok) kimenet.push_back({i, j});
+            if (paratlanok) kimenet.emplace_back(i, j);
         }
     }
 
@@ -407,13 +407,13 @@ Competente
 
     struct {
         int mgh=0;
-        char sz[21];
+        char sz[21]{};
     }t[100];
 
     struct {
         int mgh;
         char sz[21];
-    }swc;
+    }swc{};
 
     ifstream f("a.in");
 
@@ -491,7 +491,7 @@ informatica
 
     for(int i=0; i<5; i++)
     {
-        if(strchr(szo,mgh[i])!=NULL)
+        if(strchr(szo,mgh[i])!=nullptr)
         {
             strcpy(s2,szo);
             for(int k=0; k<strlen(s2); k++)
@@ -502,7 +502,7 @@ informatica
 
                     strcpy(s3,s2);
                     s3[k] = '\0';
-                    strcpy(s2,s2+k+1);
+                    strcpy(s2+k,s2+k+1);
 
                     cout<<s2<<'\n';
                     //strcpy(s2+poi,s3);
@@ -511,6 +511,71 @@ informatica
             cout<<Bright_Blue<<s2<<'\n'<<Bright_White;
         }
     }
+}
+
+void fel23()
+{
+    ifstream f("a.in");
+
+    char c1,c2;
+    f>>c1>>c2;
+
+    char s;
+    char s1[400]{};
+    char s2[400]{};
+    int k=0;
+    while(!f.eof())
+    {
+        f>>s;
+        if(s>= 'A' && s<='z')
+        {
+            if(s == c1)
+            {
+                s1[k] = s;
+                s2[k] = c2;
+                k++;
+            }
+            else if(s == c2)
+            {
+                s1[k] = s;
+                s2[k] = c1;
+                k++;
+            }
+            else
+            {
+                s1[k] = s;
+                s2[k] = s;
+                k++;
+            }
+        }
+    }
+
+    for(int i=0; i<=k; i++)
+    {
+        if(s1[i]==c1)
+        {
+            cout<<Bright_Red<<s1[i]<<' '<<Bright_White;
+        }
+        else if(s1[i]==c2)
+        {
+            cout<<Bright_Green<<s1[i]<<' '<<Bright_White;
+        }
+        else cout<<s1[i]<<' ';
+    }
+    cout<<'\n';
+    for(int i=0; i<=k; i++)
+    {
+        if(s2[i]==c1)
+        {
+            cout<<Bright_Red<<s2[i]<<' '<<Bright_White;
+        }
+        else if(s2[i]==c2)
+        {
+            cout<<Bright_Green<<s2[i]<<' '<<Bright_White;
+        }
+        else cout<<s2[i]<<' ';
+    }
+    cout<<'\n';
 }
 
 void bac_2_2()
@@ -554,7 +619,7 @@ void drawUI() {
     string title_color = colors[randDist(mt)];
 
     string
-    title="\n\n\      8888888b.                                                                                          .d8888b.   d888          .d8888b.   d888         888    888 888     888         \n"
+    title="\n\n      8888888b.                                                                                          .d8888b.   d888          .d8888b.   d888         888    888 888     888         \n"
               "      888   Y88b                                                                                        d88P  Y88b d8888         d88P  Y88b d8888         888    888 888     888         \n"
               "      888    888                                                                                        888    888   888              .d88P   888         888    888 888     888         \n"
               "      888   d88P 888d888 .d88b.   .d88b.  888d888 8888b.  88888b.d88b.   8888b.  888d888 .d88b.         888    888   888             8888\"    888         8888888888 888     888         \n"
@@ -572,6 +637,7 @@ void drawUI() {
     while (true) {
         title_color = colors[randDist(mt)];
         printf("%s> ",Bright_White);
+        if (strcmp(felbuffer, "ee") == 0) break;
         if (fgets(buffer, sizeof(buffer), stdin) != nullptr) {
             buffer[strcspn(buffer, "\n")] = '\0';
 
@@ -595,7 +661,8 @@ void drawUI() {
                     if (fgets(felbuffer, sizeof(felbuffer), stdin) != nullptr) {
                         felbuffer[strcspn(felbuffer, "\n")] = '\0';
 
-                        if (strcmp(felbuffer, "e") == 0) break;
+                        FEL_REDIRECT:
+                        if (strcmp(felbuffer, "e") == 0 || strcmp(felbuffer, "ee") == 0) break;
                         else if (strcmp(felbuffer, "cl") == 0) {
                             system("CLS");
                             printf("%s%s %s",title_color.c_str() ,title.c_str(), separator.c_str());
@@ -604,6 +671,7 @@ void drawUI() {
                             printf("Fel_Help:%s\n",Bright_White);
                             printf("%scl%s         Clears the screen.\n",Bright_Cyan,Bright_White);
                             printf("%se%s          Quits the feladat subprogram.\n",Bright_Cyan,Bright_White);
+                            printf("%see%s         Quits the program.\n",Bright_Cyan,Bright_White);
                             printf("%shelp%s / %s?%s   Provides Help information for %sfel%scommands.\n",Bright_Cyan,Bright_White,Bright_Cyan,Bright_White,Bright_Cyan,Bright_White);
                             printf("1D Tomb: %s\n",Bright_White);
                             printf("%s01%s         1. feladat\n",Bright_Cyan,Bright_White);
@@ -630,12 +698,6 @@ void drawUI() {
                         else if (strcmp(felbuffer, "02") == 0) { fel02(); }
                         else if (strcmp(felbuffer, "03") == 0) { fel03(); }
                         else if (strcmp(felbuffer, "04") == 0) { fel04(); }
-                        else if (strcmp(felbuffer, "05") == 0) {  }
-                        else if (strcmp(felbuffer, "06") == 0) {  }
-                        else if (strcmp(felbuffer, "07") == 0) {  }
-                        else if (strcmp(felbuffer, "08") == 0) {  }
-                        else if (strcmp(felbuffer, "09") == 0) {  }
-                        else if (strcmp(felbuffer, "10") == 0) {  }
                         else if (strcmp(felbuffer, "11") == 0)
                         {
                             vector<int> arr(16);
@@ -703,6 +765,10 @@ void drawUI() {
                         {
                             fel22();
                         }
+                        else if (strcmp(felbuffer, "23") == 0)
+                        {
+                            fel23();
+                        }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
                         else if(strcmp(felbuffer, "") == 0) printf("");
                         else {
@@ -712,6 +778,19 @@ void drawUI() {
                 }
             }
             else if (strcmp(buffer, "") == 0) printf("");
+            else if (strcmp(buffer, "fel01") == 0 || strcmp(buffer, "fel02") == 0 || strcmp(buffer, "fel03") == 0 || strcmp(buffer, "fel04") == 0 || strcmp(buffer, "fel05") == 0 ||
+                     strcmp(buffer, "fel06") == 0 || strcmp(buffer, "fel07") == 0 || strcmp(buffer, "fel08") == 0 || strcmp(buffer, "fel09") == 0 || strcmp(buffer, "fel10") == 0 ||
+                     strcmp(buffer, "fel11") == 0 || strcmp(buffer, "fel12") == 0 || strcmp(buffer, "fel13") == 0 || strcmp(buffer, "fel14") == 0 || strcmp(buffer, "fel15") == 0 ||
+                     strcmp(buffer, "fel16") == 0 || strcmp(buffer, "fel17") == 0 || strcmp(buffer, "fel18") == 0 || strcmp(buffer, "fel19") == 0 || strcmp(buffer, "fel20") == 0 ||
+                     strcmp(buffer, "fel21") == 0 || strcmp(buffer, "fel22") == 0 || strcmp(buffer, "fel23") == 0 || strcmp(buffer, "fel24") == 0 || strcmp(buffer, "fel25") == 0 ||
+                     strcmp(buffer, "fel26") == 0 || strcmp(buffer, "fel27") == 0 || strcmp(buffer, "fel28") == 0 || strcmp(buffer, "fel29") == 0 || strcmp(buffer, "fel30") == 0)
+            {
+                char c1[10]{};
+                strcpy(c1,buffer+3);
+                strcpy(felbuffer,c1);
+                printf("%s\033[3mRedirecting to %sfel%s%s...\033[0m%s\n\n", White, Bright_Cyan, c1, White,Bright_White);
+                goto FEL_REDIRECT;
+            }
             else {
                 printf("%s'%s%s%s' is not recognized as an internal command.%s\n",Bright_Red,Bright_White, buffer,Bright_Red,Bright_White);
             }
