@@ -519,6 +519,10 @@ void fel23()
 
     char c1,c2;
     f>>c1>>c2;
+    /*
+a e
+A p r o g r a m k i i r j a a k e p e r n y o k u l o n b o z o s o r a i b a a z e r e d e t i i l l e t v e a m o d o s i t o t t s z o v e g e t
+     */
 
     char s;
     char s1[400]{};
@@ -576,6 +580,115 @@ void fel23()
         else cout<<s2[i]<<' ';
     }
     cout<<'\n';
+}
+
+void fel24()
+{
+    ifstream f("a.in");
+
+    vector<char> c;
+    c.push_back(1);
+
+    int k=0;
+    char tmp[10]{};
+    char mgh[6]={"aeiou"};
+    /*
+informatica
+     */
+
+    while(f>>c.at(k))
+    {
+        c.push_back(1);
+        k++;
+    }
+
+    for(int i=0; i<=k; i++)
+    {
+        tmp[0] = c.at(i);
+        cout<<White<<tmp[0]<<Bright_White;
+        for(int j=0; j<5; j++)
+        {
+            if(strchr(tmp,mgh[j]) != nullptr)
+            {
+                tmp[0]-=32;
+                cout<<Bright_Blue<<tmp[0]<<Bright_White;
+            }
+        }
+    }
+
+    cout<<'\n';
+}
+
+void fel25()
+{
+    ifstream f("a.in");
+    /*
+mate
+info
+    */
+
+    char c1[51],c2[51];
+    f>>c1>>c2;
+
+    char tmp[51]{};
+    for(int i=strlen(c1)-1; i>=0; i--)
+    {
+        for(int j=i; j<=strlen(c1)-1; j++)
+        {
+            cout<<c1[j];
+        }
+        cout<<'\n';
+    }
+    for(int i=0; i<strlen(c2); i++)
+    {
+        for(int j=0; j<strlen(c2)-i; j++)
+        {
+            cout<<c2[j];
+        }
+        cout<<'\n';
+    }
+}
+
+void fel26()
+{
+    FILE *fptr;
+    fptr = fopen("a.in", "r");
+    /*
+atestat la    informatica
+     */
+
+    char c[256];
+    char tmp[10]{};
+    bool start = true;
+
+    fgets(c, sizeof(c), fptr);
+
+    for(int i=0; i< strlen(c); i++)
+    {
+        if(start && c[i]!=' ')
+        {
+            tmp[0] = c[i];
+            tmp[0] -= 32;
+            cout<<tmp[0];
+            start = false;
+        }
+        else if(c[i+1]==' ' || i+1 == strlen(c))
+        {
+            start = true;
+            tmp[0] = c[i];
+            tmp[0] -= 32;
+            cout<<tmp[0];
+        }
+        else cout<<c[i];
+    }
+
+    cout<<'\n';
+    fclose(fptr);
+}
+
+void fel27()
+{
+
 }
 
 void bac_2_2()
@@ -691,6 +804,11 @@ void drawUI() {
                             printf("char: %s\n",Bright_White);
                             printf("%s21%s         1. feladat\n",Bright_Cyan,Bright_White);
                             printf("%s22%s         2. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s23%s         3. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s24%s         4. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s25%s         5. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s26%s         6. feladat\n",Bright_Cyan,Bright_White);
+                            printf("%s27%s         7. feladat\n",Bright_Cyan,Bright_White);
                             printf("BAC_SIM25: %s\n",Bright_White);
                             printf("%sb22%s        BAC_SIM25 II 2.\n",Bright_Cyan,Bright_White);
                         }
@@ -768,6 +886,22 @@ void drawUI() {
                         else if (strcmp(felbuffer, "23") == 0)
                         {
                             fel23();
+                        }
+                        else if (strcmp(felbuffer, "24") == 0)
+                        {
+                            fel24();
+                        }
+                        else if (strcmp(felbuffer, "25") == 0)
+                        {
+                            fel25();
+                        }
+                        else if (strcmp(felbuffer, "26") == 0)
+                        {
+                            fel26();
+                        }
+                        else if (strcmp(felbuffer, "27") == 0)
+                        {
+                            fel27();
                         }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
                         else if(strcmp(felbuffer, "") == 0) printf("");
