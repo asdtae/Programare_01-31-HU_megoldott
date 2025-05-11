@@ -5,6 +5,7 @@
 #include <random>
 #include <vector>
 #include <limits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -716,6 +717,33 @@ void bac_2_2()
     cout<<'\n';
 }
 
+void textToSqlComm(const char *filename)
+{
+    ifstream f(filename);
+
+    char model_name[255];
+    char year[255];
+    char engine_size_cc[255];
+    char horsepower[255];
+    char torque_nm[255];
+    char top_speed_kph[255];
+
+    while(!f.eof())
+    {
+
+        f>>model_name;
+        f>>year;
+        f>>engine_size_cc;
+        f>>horsepower;
+        f>>torque_nm;
+        f>>top_speed_kph;
+        printf("%sINSERT INTO `mcklareq_info`(`model_name`, `year`, `engine_size_cc`, `horsepower`, `torque_nm`, `top_speed_kph`) VALUES (%s'McLaren "
+               "%s%s', '%s%s%s', '%s%s%s', '%s%s%s', '%s%s%s', '%s%s%s');\n",White,Bright_Cyan,model_name,White,Bright_Blue,year,White,Bright_Green,engine_size_cc,White,Bright_Red,horsepower,White,Bright_Magenta,torque_nm,White,Bright_Yellow,top_speed_kph,White);
+    }
+
+    cout<<'\n';
+}
+
 void drawUI() {
     char buffer[50];
     char felbuffer[50];
@@ -811,6 +839,8 @@ void drawUI() {
                             printf("%s27%s         7. feladat\n",Bright_Cyan,Bright_White);
                             printf("BAC_SIM25: %s\n",Bright_White);
                             printf("%sb22%s        BAC_SIM25 II 2.\n",Bright_Cyan,Bright_White);
+                            printf("Thomas progik: %s\n",Bright_White);
+                            printf("%st1%s         .txt -> sql comm\n",Bright_Cyan,Bright_White);
                         }
                         else if (strcmp(felbuffer, "01") == 0) { fel01(4,30); }
                         else if (strcmp(felbuffer, "02") == 0) { fel02(); }
@@ -904,7 +934,12 @@ void drawUI() {
                             fel27();
                         }
                         else if (strcmp(felbuffer, "b22") == 0) { bac_2_2(); }
-                        else if(strcmp(felbuffer, "") == 0) printf("");
+                        else if (strcmp(felbuffer, "t1") == 0)
+                        {
+                            //cin>>txtFilename;
+                            textToSqlComm("sql.txt");
+                        }
+                        else if (strcmp(felbuffer, "") == 0) printf("");
                         else {
                             printf("%s'%s%s%s' is not recognized as an internal %sfel%scommand.%s\n",Bright_Red,Bright_White, felbuffer,Bright_Red,Bright_Cyan,Bright_Red,Bright_White);
                         }
